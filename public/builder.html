@@ -345,16 +345,40 @@ const ctx = canvas.getContext('2d');
 function updateCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const layerOrder = ["Eyes", "Fur", "Hat", "Mouth", "Background", "Clothes"];
+  // Correct layer order
+  const layerOrder = ["Background", "Fur", "Clothes", "Eyes", "Mouth", "Hat"];
+  const imagesToLoad = [];
+
   layerOrder.forEach(layer => {
     const select = document.getElementById(layer + "Select");
     const value = select.value;
     if (value) {
-      const img = new Image();
-      img.src = value;
-      img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      imagesToLoad.push(value);
+    } else {
+      imagesToLoad.push(null);
     }
   });
+
+  // Sequentially load and draw images
+  function drawLayer(index) {
+    if (index >= imagesToLoad.length) return;
+    const src = imagesToLoad[index];
+    if (!src) {
+      drawLayer(index + 1);
+      return;
+    }
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      drawLayer(index + 1);
+    };
+    img.onerror = () => {
+      drawLayer(index + 1); // Skip if image fails to load
+    };
+  }
+
+  drawLayer(0);
 }
 </script>
 
