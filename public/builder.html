@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Build a PRIME8</title>
+  <title>NFT Layer Builder</title>
   <style>
     body { font-family: sans-serif; padding: 20px; background: #111; color: white; }
     select { margin: 10px; }
@@ -11,7 +11,56 @@
   </style>
 </head>
 <body>
-  <h1>Build a PRIME8</h1>
+  <h1>NFT Layer Builder</h1>
+<label for="BackgroundSelect">Background</label>
+<select id="BackgroundSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Background/APE.png">APE</option>
+  <option value="/assets/Background/Brown.png">Brown</option>
+  <option value="/assets/Background/Cyan.png">Cyan</option>
+  <option value="/assets/Background/Green.png">Green</option>
+  <option value="/assets/Background/Grey.png">Grey</option>
+  <option value="/assets/Background/Magenta.png">Magenta</option>
+  <option value="/assets/Background/Orange.png">Orange</option>
+  <option value="/assets/Background/Red.png">Red</option>
+  <option value="/assets/Background/Teal.png">Teal</option>
+</select>
+<label for="FurSelect">Fur</label>
+<select id="FurSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Fur/AI.png">AI</option>
+  <option value="/assets/Fur/Alien.png">Alien</option>
+  <option value="/assets/Fur/Blue.png">Blue</option>
+  <option value="/assets/Fur/Brown.png">Brown</option>
+  <option value="/assets/Fur/Cheetah.png">Cheetah</option>
+  <option value="/assets/Fur/Cream.png">Cream</option>
+  <option value="/assets/Fur/Death Bot.png">Death Bot</option>
+  <option value="/assets/Fur/DMT.png">DMT</option>
+  <option value="/assets/Fur/Ember.png">Ember</option>
+  <option value="/assets/Fur/Ghost.png">Ghost</option>
+  <option value="/assets/Fur/GOB.png">GOB</option>
+  <option value="/assets/Fur/Gold.png">Gold</option>
+  <option value="/assets/Fur/Golden Brown.png">Golden Brown</option>
+  <option value="/assets/Fur/Golden Skellz.png">Golden Skellz</option>
+  <option value="/assets/Fur/Green.png">Green</option>
+  <option value="/assets/Fur/Grey.png">Grey</option>
+  <option value="/assets/Fur/Incognito.png">Incognito</option>
+  <option value="/assets/Fur/Magenta.png">Magenta</option>
+  <option value="/assets/Fur/Noise.png">Noise</option>
+  <option value="/assets/Fur/OG.png">OG</option>
+  <option value="/assets/Fur/Orange.png">Orange</option>
+  <option value="/assets/Fur/Pink Cheetah.png">Pink Cheetah</option>
+  <option value="/assets/Fur/Pink.png">Pink</option>
+  <option value="/assets/Fur/Purp.png">Purp</option>
+  <option value="/assets/Fur/Red.png">Red</option>
+  <option value="/assets/Fur/Skell.png">Skell</option>
+  <option value="/assets/Fur/Stone.png">Stone</option>
+  <option value="/assets/Fur/Tiger.png">Tiger</option>
+  <option value="/assets/Fur/Trippy.png">Trippy</option>
+  <option value="/assets/Fur/White.png">White</option>
+  <option value="/assets/Fur/Yellow.png">Yellow</option>
+  <option value="/assets/Fur/Zombie.png">Zombie</option>
+</select>
 <label for="EyesSelect">Eyes</label>
 <select id="EyesSelect" onchange="updateCanvas()">
 <option value="">-- None --</option>
@@ -65,42 +114,6 @@
   <option value="/assets/Eyes/VR.png">VR</option>
   <option value="/assets/Eyes/Welder.png">Welder</option>
   <option value="/assets/Eyes/Zombie.png">Zombie</option>
-</select>
-<label for="FurSelect">Fur</label>
-<select id="FurSelect" onchange="updateCanvas()">
-<option value="">-- None --</option>
-  <option value="/assets/Fur/AI.png">AI</option>
-  <option value="/assets/Fur/Alien.png">Alien</option>
-  <option value="/assets/Fur/Blue.png">Blue</option>
-  <option value="/assets/Fur/Brown.png">Brown</option>
-  <option value="/assets/Fur/Cheetah.png">Cheetah</option>
-  <option value="/assets/Fur/Cream.png">Cream</option>
-  <option value="/assets/Fur/Death Bot.png">Death Bot</option>
-  <option value="/assets/Fur/DMT.png">DMT</option>
-  <option value="/assets/Fur/Ember.png">Ember</option>
-  <option value="/assets/Fur/Ghost.png">Ghost</option>
-  <option value="/assets/Fur/GOB.png">GOB</option>
-  <option value="/assets/Fur/Gold.png">Gold</option>
-  <option value="/assets/Fur/Golden Brown.png">Golden Brown</option>
-  <option value="/assets/Fur/Golden Skellz.png">Golden Skellz</option>
-  <option value="/assets/Fur/Green.png">Green</option>
-  <option value="/assets/Fur/Grey.png">Grey</option>
-  <option value="/assets/Fur/Incognito.png">Incognito</option>
-  <option value="/assets/Fur/Magenta.png">Magenta</option>
-  <option value="/assets/Fur/Noise.png">Noise</option>
-  <option value="/assets/Fur/OG.png">OG</option>
-  <option value="/assets/Fur/Orange.png">Orange</option>
-  <option value="/assets/Fur/Pink Cheetah.png">Pink Cheetah</option>
-  <option value="/assets/Fur/Pink.png">Pink</option>
-  <option value="/assets/Fur/Purp.png">Purp</option>
-  <option value="/assets/Fur/Red.png">Red</option>
-  <option value="/assets/Fur/Skell.png">Skell</option>
-  <option value="/assets/Fur/Stone.png">Stone</option>
-  <option value="/assets/Fur/Tiger.png">Tiger</option>
-  <option value="/assets/Fur/Trippy.png">Trippy</option>
-  <option value="/assets/Fur/White.png">White</option>
-  <option value="/assets/Fur/Yellow.png">Yellow</option>
-  <option value="/assets/Fur/Zombie.png">Zombie</option>
 </select>
 <label for="HatSelect">Hat</label>
 <select id="HatSelect" onchange="updateCanvas()">
@@ -265,6 +278,20 @@
   <option value="/assets/Hat/Viking.png">Viking</option>
   <option value="/assets/Hat/Welder.png">Welder</option>
 </select>
+<label for="ClothesSelect">Clothes</label>
+<select id="ClothesSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Clothes/Alien Pink.png">Alien Pink</option>
+  <option value="/assets/Clothes/Alien.png">Alien</option>
+  <option value="/assets/Clothes/Armor Black.png">Armor Black</option>
+  <option value="/assets/Clothes/Armor.png">Armor</option>
+  <option value="/assets/Clothes/Fur Magenta.png">Fur Magenta</option>
+  <option value="/assets/Clothes/Guayabera.png">Guayabera</option>
+  <option value="/assets/Clothes/Jacket Green.png">Jacket Green</option>
+  <option value="/assets/Clothes/Slooth Diamond.png">Slooth Diamond</option>
+  <option value="/assets/Clothes/Turtle Green.png">Turtle Green</option>
+  <option value="/assets/Clothes/Wong.png">Wong</option>
+</select>
 <label for="MouthSelect">Mouth</label>
 <select id="MouthSelect" onchange="updateCanvas()">
 <option value="">-- None --</option>
@@ -307,33 +334,6 @@
   <option value="/assets/Mouth/Toothless.png">Toothless</option>
   <option value="/assets/Mouth/Vape.png">Vape</option>
   <option value="/assets/Mouth/Yikes.png">Yikes</option>
-</select>
-<label for="BackgroundSelect">Background</label>
-<select id="BackgroundSelect" onchange="updateCanvas()">
-<option value="">-- None --</option>
-  <option value="/assets/Background/APE.png">APE</option>
-  <option value="/assets/Background/Brown.png">Brown</option>
-  <option value="/assets/Background/Cyan.png">Cyan</option>
-  <option value="/assets/Background/Green.png">Green</option>
-  <option value="/assets/Background/Grey.png">Grey</option>
-  <option value="/assets/Background/Magenta.png">Magenta</option>
-  <option value="/assets/Background/Orange.png">Orange</option>
-  <option value="/assets/Background/Red.png">Red</option>
-  <option value="/assets/Background/Teal.png">Teal</option>
-</select>
-<label for="ClothesSelect">Clothes</label>
-<select id="ClothesSelect" onchange="updateCanvas()">
-<option value="">-- None --</option>
-  <option value="/assets/Clothes/Alien Pink.png">Alien Pink</option>
-  <option value="/assets/Clothes/Alien.png">Alien</option>
-  <option value="/assets/Clothes/Armor Black.png">Armor Black</option>
-  <option value="/assets/Clothes/Armor.png">Armor</option>
-  <option value="/assets/Clothes/Fur Magenta.png">Fur Magenta</option>
-  <option value="/assets/Clothes/Guayabera.png">Guayabera</option>
-  <option value="/assets/Clothes/Jacket Green.png">Jacket Green</option>
-  <option value="/assets/Clothes/Slooth Diamond.png">Slooth Diamond</option>
-  <option value="/assets/Clothes/Turtle Green.png">Turtle Green</option>
-  <option value="/assets/Clothes/Wong.png">Wong</option>
 </select>
 
 <canvas id="nftCanvas" width="600" height="600"></canvas>
