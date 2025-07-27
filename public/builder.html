@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prime8 Builder</title>
+  <title>NFT Layer Builder</title>
   <style>
     body { font-family: sans-serif; padding: 20px; background: #111; color: white; }
     select { margin: 10px; }
@@ -11,11 +11,11 @@
   </style>
 </head>
 <body>
-  <h1>Priime8 Builder</h1>
+  <h1>NFT Layer Builder</h1>
 <label for="EyesSelect">Eyes</label>
 <select id="EyesSelect" onchange="updateCanvas()">
 <option value="">-- None --</option>
-  <option value="public/assets/Eyes/APE MOG.png">APE MOG</option>
+  <option value="/assets/Eyes/APE MOG.png">APE MOG</option>
   <option value="/assets/Eyes/Aviators.png">Aviators</option>
   <option value="/assets/Eyes/Black.png">Black</option>
   <option value="/assets/Eyes/Blue Beams.png">Blue Beams</option>
@@ -345,40 +345,16 @@ const ctx = canvas.getContext('2d');
 function updateCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Correct layer order
-  const layerOrder = ["Background", "Fur", "Clothes", "Eyes", "Mouth", "Hat"];
-  const imagesToLoad = [];
-
+  const layerOrder = ["Eyes", "Fur", "Hat", "Mouth", "Background", "Clothes"];
   layerOrder.forEach(layer => {
     const select = document.getElementById(layer + "Select");
     const value = select.value;
     if (value) {
-      imagesToLoad.push(value);
-    } else {
-      imagesToLoad.push(null);
+      const img = new Image();
+      img.src = value;
+      img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     }
   });
-
-  // Sequentially load and draw images
-  function drawLayer(index) {
-    if (index >= imagesToLoad.length) return;
-    const src = imagesToLoad[index];
-    if (!src) {
-      drawLayer(index + 1);
-      return;
-    }
-    const img = new Image();
-    img.src = src;
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      drawLayer(index + 1);
-    };
-    img.onerror = () => {
-      drawLayer(index + 1); // Skip if image fails to load
-    };
-  }
-
-  drawLayer(0);
 }
 </script>
 
