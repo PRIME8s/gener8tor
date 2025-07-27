@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NFT Layer Builder</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #111; color: white; }
+    select { margin: 10px; }
+    canvas { background: white; display: block; margin-top: 20px; }
+    label { display: block; margin-top: 15px; }
+  </style>
+</head>
+<body>
+  <h1>NFT Layer Builder</h1>
+<label for="EyesSelect">Eyes</label>
+<select id="EyesSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Eyes/APE MOG.png">APE MOG</option>
+  <option value="/assets/Eyes/Aviators.png">Aviators</option>
+  <option value="/assets/Eyes/Black.png">Black</option>
+  <option value="/assets/Eyes/Blue Beams.png">Blue Beams</option>
+  <option value="/assets/Eyes/Blue.png">Blue</option>
+  <option value="/assets/Eyes/Bored.png">Bored</option>
+  <option value="/assets/Eyes/Brown.png">Brown</option>
+  <option value="/assets/Eyes/Closed.png">Closed</option>
+  <option value="/assets/Eyes/Crash Dummy.png">Crash Dummy</option>
+  <option value="/assets/Eyes/Cyborg.png">Cyborg</option>
+  <option value="/assets/Eyes/Designer.png">Designer</option>
+  <option value="/assets/Eyes/Eye Patch.png">Eye Patch</option>
+  <option value="/assets/Eyes/Futuristic Gold.png">Futuristic Gold</option>
+  <option value="/assets/Eyes/Futuristic.png">Futuristic</option>
+  <option value="/assets/Eyes/Geeked.png">Geeked</option>
+  <option value="/assets/Eyes/GOB.png">GOB</option>
+  <option value="/assets/Eyes/Goggles.png">Goggles</option>
+  <option value="/assets/Eyes/Gold Frame.png">Gold Frame</option>
+  <option value="/assets/Eyes/Green.png">Green</option>
+  <option value="/assets/Eyes/Grey.png">Grey</option>
+  <option value="/assets/Eyes/Hacker.png">Hacker</option>
+  <option value="/assets/Eyes/Hazel.png">Hazel</option>
+  <option value="/assets/Eyes/Hetero.png">Hetero</option>
+  <option value="/assets/Eyes/High.png">High</option>
+  <option value="/assets/Eyes/Hypno.png">Hypno</option>
+  <option value="/assets/Eyes/Laser.png">Laser</option>
+  <option value="/assets/Eyes/MOG.png">MOG</option>
+  <option value="/assets/Eyes/Morpheus.png">Morpheus</option>
+  <option value="/assets/Eyes/Not Cult.png">Not Cult</option>
+  <option value="/assets/Eyes/NPC.png">NPC</option>
+  <option value="/assets/Eyes/Pink.png">Pink</option>
+  <option value="/assets/Eyes/Purple.png">Purple</option>
+  <option value="/assets/Eyes/Red.png">Red</option>
+  <option value="/assets/Eyes/Robo.png">Robo</option>
+  <option value="/assets/Eyes/Scientist.png">Scientist</option>
+  <option value="/assets/Eyes/Scouter.png">Scouter</option>
+  <option value="/assets/Eyes/ScumBag.png">ScumBag</option>
+  <option value="/assets/Eyes/Shades Red.png">Shades Red</option>
+  <option value="/assets/Eyes/Shades.png">Shades</option>
+  <option value="/assets/Eyes/Slim Shades.png">Slim Shades</option>
+  <option value="/assets/Eyes/Stoned.png">Stoned</option>
+  <option value="/assets/Eyes/Stunnas.png">Stunnas</option>
+  <option value="/assets/Eyes/Sunglasses.png">Sunglasses</option>
+  <option value="/assets/Eyes/Sus.png">Sus</option>
+  <option value="/assets/Eyes/Tired.png">Tired</option>
+  <option value="/assets/Eyes/Tron.png">Tron</option>
+  <option value="/assets/Eyes/Visor.png">Visor</option>
+  <option value="/assets/Eyes/VR.png">VR</option>
+  <option value="/assets/Eyes/Welder.png">Welder</option>
+  <option value="/assets/Eyes/Zombie.png">Zombie</option>
+</select>
+<label for="FurSelect">Fur</label>
+<select id="FurSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Fur/AI.png">AI</option>
+  <option value="/assets/Fur/Alien.png">Alien</option>
+  <option value="/assets/Fur/Blue.png">Blue</option>
+  <option value="/assets/Fur/Brown.png">Brown</option>
+  <option value="/assets/Fur/Cheetah.png">Cheetah</option>
+  <option value="/assets/Fur/Cream.png">Cream</option>
+  <option value="/assets/Fur/Death Bot.png">Death Bot</option>
+  <option value="/assets/Fur/DMT.png">DMT</option>
+  <option value="/assets/Fur/Ember.png">Ember</option>
+  <option value="/assets/Fur/Ghost.png">Ghost</option>
+  <option value="/assets/Fur/GOB.png">GOB</option>
+  <option value="/assets/Fur/Gold.png">Gold</option>
+  <option value="/assets/Fur/Golden Brown.png">Golden Brown</option>
+  <option value="/assets/Fur/Golden Skellz.png">Golden Skellz</option>
+  <option value="/assets/Fur/Green.png">Green</option>
+  <option value="/assets/Fur/Grey.png">Grey</option>
+  <option value="/assets/Fur/Incognito.png">Incognito</option>
+  <option value="/assets/Fur/Magenta.png">Magenta</option>
+  <option value="/assets/Fur/Noise.png">Noise</option>
+  <option value="/assets/Fur/OG.png">OG</option>
+  <option value="/assets/Fur/Orange.png">Orange</option>
+  <option value="/assets/Fur/Pink Cheetah.png">Pink Cheetah</option>
+  <option value="/assets/Fur/Pink.png">Pink</option>
+  <option value="/assets/Fur/Purp.png">Purp</option>
+  <option value="/assets/Fur/Red.png">Red</option>
+  <option value="/assets/Fur/Skell.png">Skell</option>
+  <option value="/assets/Fur/Stone.png">Stone</option>
+  <option value="/assets/Fur/Tiger.png">Tiger</option>
+  <option value="/assets/Fur/Trippy.png">Trippy</option>
+  <option value="/assets/Fur/White.png">White</option>
+  <option value="/assets/Fur/Yellow.png">Yellow</option>
+  <option value="/assets/Fur/Zombie.png">Zombie</option>
+</select>
+<label for="HatSelect">Hat</label>
+<select id="HatSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Hat/Afro.png">Afro</option>
+  <option value="/assets/Hat/Anime.png">Anime</option>
+  <option value="/assets/Hat/APE Brim Black.png">APE Brim Black</option>
+  <option value="/assets/Hat/APE Brim Cyan.png">APE Brim Cyan</option>
+  <option value="/assets/Hat/APE Brim Green.png">APE Brim Green</option>
+  <option value="/assets/Hat/APE Brim Magenta.png">APE Brim Magenta</option>
+  <option value="/assets/Hat/APE Brim Pink.png">APE Brim Pink</option>
+  <option value="/assets/Hat/APE Brim Red.png">APE Brim Red</option>
+  <option value="/assets/Hat/APE Brim White.png">APE Brim White</option>
+  <option value="/assets/Hat/APE Brim Yellow.png">APE Brim Yellow</option>
+  <option value="/assets/Hat/APE Brim.png">APE Brim</option>
+  <option value="/assets/Hat/APE Cap .png">APE Cap </option>
+  <option value="/assets/Hat/APE Cap Black.png">APE Cap Black</option>
+  <option value="/assets/Hat/APE Cap Cyan.png">APE Cap Cyan</option>
+  <option value="/assets/Hat/APE Cap Green.png">APE Cap Green</option>
+  <option value="/assets/Hat/APE Cap Magenta.png">APE Cap Magenta</option>
+  <option value="/assets/Hat/APE Cap Pink.png">APE Cap Pink</option>
+  <option value="/assets/Hat/APE Cap Red.png">APE Cap Red</option>
+  <option value="/assets/Hat/APE Cap Yellow.png">APE Cap Yellow</option>
+  <option value="/assets/Hat/APE Knit Black.png">APE Knit Black</option>
+  <option value="/assets/Hat/APE Knit Green.png">APE Knit Green</option>
+  <option value="/assets/Hat/APE Knit Magenta.png">APE Knit Magenta</option>
+  <option value="/assets/Hat/APE Knit Pink.png">APE Knit Pink</option>
+  <option value="/assets/Hat/APE Knit Red.png">APE Knit Red</option>
+  <option value="/assets/Hat/APE Knit Yellow.png">APE Knit Yellow</option>
+  <option value="/assets/Hat/APE Knit.png">APE Knit</option>
+  <option value="/assets/Hat/APE Ski 2.png">APE Ski 2</option>
+  <option value="/assets/Hat/APE Ski 3.png">APE Ski 3</option>
+  <option value="/assets/Hat/APE Ski.png">APE Ski</option>
+  <option value="/assets/Hat/Astro.png">Astro</option>
+  <option value="/assets/Hat/Beanie.png">Beanie</option>
+  <option value="/assets/Hat/Big Brain.png">Big Brain</option>
+  <option value="/assets/Hat/BoHo.png">BoHo</option>
+  <option value="/assets/Hat/Bored APE.png">Bored APE</option>
+  <option value="/assets/Hat/Bored Black.png">Bored Black</option>
+  <option value="/assets/Hat/Bored Cyan.png">Bored Cyan</option>
+  <option value="/assets/Hat/Bored Gold.png">Bored Gold</option>
+  <option value="/assets/Hat/Bored Green.png">Bored Green</option>
+  <option value="/assets/Hat/Bored Magenta.png">Bored Magenta</option>
+  <option value="/assets/Hat/Bored N Hungry.png">Bored N Hungry</option>
+  <option value="/assets/Hat/Bored Pink.png">Bored Pink</option>
+  <option value="/assets/Hat/Bored Red.png">Bored Red</option>
+  <option value="/assets/Hat/Bored.png">Bored</option>
+  <option value="/assets/Hat/Bowler APE.png">Bowler APE</option>
+  <option value="/assets/Hat/Bowler Cyan.png">Bowler Cyan</option>
+  <option value="/assets/Hat/Bowler Green.png">Bowler Green</option>
+  <option value="/assets/Hat/Bowler Magenta.png">Bowler Magenta</option>
+  <option value="/assets/Hat/Bowler Pink.png">Bowler Pink</option>
+  <option value="/assets/Hat/Bowler Red.png">Bowler Red</option>
+  <option value="/assets/Hat/Bowler White.png">Bowler White</option>
+  <option value="/assets/Hat/Bowler Yellow.png">Bowler Yellow</option>
+  <option value="/assets/Hat/Brim APE.png">Brim APE</option>
+  <option value="/assets/Hat/Brim Black.png">Brim Black</option>
+  <option value="/assets/Hat/Brim Cyan.png">Brim Cyan</option>
+  <option value="/assets/Hat/Brim Green.png">Brim Green</option>
+  <option value="/assets/Hat/Brim Magenta.png">Brim Magenta</option>
+  <option value="/assets/Hat/Brim Pink.png">Brim Pink</option>
+  <option value="/assets/Hat/Brim Red.png">Brim Red</option>
+  <option value="/assets/Hat/Brim White.png">Brim White</option>
+  <option value="/assets/Hat/Brim Yellow.png">Brim Yellow</option>
+  <option value="/assets/Hat/Buildoor.png">Buildoor</option>
+  <option value="/assets/Hat/Cap APE.png">Cap APE</option>
+  <option value="/assets/Hat/Cap Black.png">Cap Black</option>
+  <option value="/assets/Hat/Cap Cyan.png">Cap Cyan</option>
+  <option value="/assets/Hat/Cap Green.png">Cap Green</option>
+  <option value="/assets/Hat/Cap Magenta.png">Cap Magenta</option>
+  <option value="/assets/Hat/Cap Pink.png">Cap Pink</option>
+  <option value="/assets/Hat/Cap Red.png">Cap Red</option>
+  <option value="/assets/Hat/Cap Yellow.png">Cap Yellow</option>
+  <option value="/assets/Hat/Capt.png">Capt</option>
+  <option value="/assets/Hat/Commie.png">Commie</option>
+  <option value="/assets/Hat/Deng Diamond.png">Deng Diamond</option>
+  <option value="/assets/Hat/Deng Gold.png">Deng Gold</option>
+  <option value="/assets/Hat/Deng.png">Deng</option>
+  <option value="/assets/Hat/Desperado.png">Desperado</option>
+  <option value="/assets/Hat/DooM.png">DooM</option>
+  <option value="/assets/Hat/Fisher APE.png">Fisher APE</option>
+  <option value="/assets/Hat/Fisher Black.png">Fisher Black</option>
+  <option value="/assets/Hat/Fisher Cyan.png">Fisher Cyan</option>
+  <option value="/assets/Hat/Fisher Green.png">Fisher Green</option>
+  <option value="/assets/Hat/Fisher Magenta.png">Fisher Magenta</option>
+  <option value="/assets/Hat/Fisher Pink.png">Fisher Pink</option>
+  <option value="/assets/Hat/Fisher Red.png">Fisher Red</option>
+  <option value="/assets/Hat/Fisher White.png">Fisher White</option>
+  <option value="/assets/Hat/Fisher.png">Fisher</option>
+  <option value="/assets/Hat/FrostByte.png">FrostByte</option>
+  <option value="/assets/Hat/GEE.png">GEE</option>
+  <option value="/assets/Hat/Gimp.png">Gimp</option>
+  <option value="/assets/Hat/Habibi.png">Habibi</option>
+  <option value="/assets/Hat/Halo.png">Halo</option>
+  <option value="/assets/Hat/Headband APE.png">Headband APE</option>
+  <option value="/assets/Hat/Headband Cyan.png">Headband Cyan</option>
+  <option value="/assets/Hat/Headband Green.png">Headband Green</option>
+  <option value="/assets/Hat/Headband Magenta.png">Headband Magenta</option>
+  <option value="/assets/Hat/Headband Pink.png">Headband Pink</option>
+  <option value="/assets/Hat/Headband Red.png">Headband Red</option>
+  <option value="/assets/Hat/Headband Yellow.png">Headband Yellow</option>
+  <option value="/assets/Hat/Heisenberg.png">Heisenberg</option>
+  <option value="/assets/Hat/Hero.png">Hero</option>
+  <option value="/assets/Hat/Horn.png">Horn</option>
+  <option value="/assets/Hat/HotHead.png">HotHead</option>
+  <option value="/assets/Hat/Hunter.png">Hunter</option>
+  <option value="/assets/Hat/King APE.png">King APE</option>
+  <option value="/assets/Hat/King.png">King</option>
+  <option value="/assets/Hat/Knit APE.png">Knit APE</option>
+  <option value="/assets/Hat/Knit Cyan.png">Knit Cyan</option>
+  <option value="/assets/Hat/Knit Green.png">Knit Green</option>
+  <option value="/assets/Hat/Knit Magenta.png">Knit Magenta</option>
+  <option value="/assets/Hat/Knit Pink.png">Knit Pink</option>
+  <option value="/assets/Hat/Knit Red.png">Knit Red</option>
+  <option value="/assets/Hat/Knit Yellow.png">Knit Yellow</option>
+  <option value="/assets/Hat/Knit.png">Knit</option>
+  <option value="/assets/Hat/Madusa.png">Madusa</option>
+  <option value="/assets/Hat/Mech.png">Mech</option>
+  <option value="/assets/Hat/Merica.png">Merica</option>
+  <option value="/assets/Hat/Miner.png">Miner</option>
+  <option value="/assets/Hat/Mohawk Cyan.png">Mohawk Cyan</option>
+  <option value="/assets/Hat/Mohawk Lime.png">Mohawk Lime</option>
+  <option value="/assets/Hat/Mohawk Magenta.png">Mohawk Magenta</option>
+  <option value="/assets/Hat/Party 2.png">Party 2</option>
+  <option value="/assets/Hat/Party 3.png">Party 3</option>
+  <option value="/assets/Hat/Party.png">Party</option>
+  <option value="/assets/Hat/Perm.png">Perm</option>
+  <option value="/assets/Hat/Pharoah.png">Pharoah</option>
+  <option value="/assets/Hat/Pirate APE.png">Pirate APE</option>
+  <option value="/assets/Hat/Pirate Cyan.png">Pirate Cyan</option>
+  <option value="/assets/Hat/Pirate Green.png">Pirate Green</option>
+  <option value="/assets/Hat/Pirate Magenta.png">Pirate Magenta</option>
+  <option value="/assets/Hat/Pirate Pink.png">Pirate Pink</option>
+  <option value="/assets/Hat/Pirate Red.png">Pirate Red</option>
+  <option value="/assets/Hat/Pirate Yellow.png">Pirate Yellow</option>
+  <option value="/assets/Hat/Prussian.png">Prussian</option>
+  <option value="/assets/Hat/Rasta.png">Rasta</option>
+  <option value="/assets/Hat/Red Ski 2.png">Red Ski 2</option>
+  <option value="/assets/Hat/Red Ski.png">Red Ski</option>
+  <option value="/assets/Hat/RiceHat.png">RiceHat</option>
+  <option value="/assets/Hat/Rose.png">Rose</option>
+  <option value="/assets/Hat/Safari.png">Safari</option>
+  <option value="/assets/Hat/Sailor.png">Sailor</option>
+  <option value="/assets/Hat/Service.png">Service</option>
+  <option value="/assets/Hat/Sheriff.png">Sheriff</option>
+  <option value="/assets/Hat/Ski.png">Ski</option>
+  <option value="/assets/Hat/Snap APE.png">Snap APE</option>
+  <option value="/assets/Hat/Snap Cyan.png">Snap Cyan</option>
+  <option value="/assets/Hat/Snap Green.png">Snap Green</option>
+  <option value="/assets/Hat/Snap Magenta.png">Snap Magenta</option>
+  <option value="/assets/Hat/Snap Pink.png">Snap Pink</option>
+  <option value="/assets/Hat/Snap Red.png">Snap Red</option>
+  <option value="/assets/Hat/Snap White.png">Snap White</option>
+  <option value="/assets/Hat/Snap Yellow.png">Snap Yellow</option>
+  <option value="/assets/Hat/Snap.png">Snap</option>
+  <option value="/assets/Hat/SSJ.png">SSJ</option>
+  <option value="/assets/Hat/StrawHat.png">StrawHat</option>
+  <option value="/assets/Hat/Stunt.png">Stunt</option>
+  <option value="/assets/Hat/Sweatband APE.png">Sweatband APE</option>
+  <option value="/assets/Hat/Sweatband.png">Sweatband</option>
+  <option value="/assets/Hat/UNI.png">UNI</option>
+  <option value="/assets/Hat/Viking.png">Viking</option>
+  <option value="/assets/Hat/Welder.png">Welder</option>
+</select>
+<label for="MouthSelect">Mouth</label>
+<select id="MouthSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Mouth/Blank.png">Blank</option>
+  <option value="/assets/Mouth/Blunt.png">Blunt</option>
+  <option value="/assets/Mouth/Bored.png">Bored</option>
+  <option value="/assets/Mouth/Bucky.png">Bucky</option>
+  <option value="/assets/Mouth/Cheerful.png">Cheerful</option>
+  <option value="/assets/Mouth/ChocoNana.png">ChocoNana</option>
+  <option value="/assets/Mouth/Cig.png">Cig</option>
+  <option value="/assets/Mouth/Drool CYMK.png">Drool CYMK</option>
+  <option value="/assets/Mouth/Drool.png">Drool</option>
+  <option value="/assets/Mouth/Dumbfounded.png">Dumbfounded</option>
+  <option value="/assets/Mouth/GOB.png">GOB</option>
+  <option value="/assets/Mouth/Gold Tooth.png">Gold Tooth</option>
+  <option value="/assets/Mouth/Grill CYMK.png">Grill CYMK</option>
+  <option value="/assets/Mouth/Grill Diamond.png">Grill Diamond</option>
+  <option value="/assets/Mouth/Grill Gold.png">Grill Gold</option>
+  <option value="/assets/Mouth/Grin.png">Grin</option>
+  <option value="/assets/Mouth/Grit.png">Grit</option>
+  <option value="/assets/Mouth/Grr.png">Grr</option>
+  <option value="/assets/Mouth/Gum.png">Gum</option>
+  <option value="/assets/Mouth/Kazoo.png">Kazoo</option>
+  <option value="/assets/Mouth/King Kong.png">King Kong</option>
+  <option value="/assets/Mouth/Kong.png">Kong</option>
+  <option value="/assets/Mouth/Mask Red.png">Mask Red</option>
+  <option value="/assets/Mouth/Mask.png">Mask</option>
+  <option value="/assets/Mouth/Missing Tooth.png">Missing Tooth</option>
+  <option value="/assets/Mouth/Nana.png">Nana</option>
+  <option value="/assets/Mouth/Oohhh.png">Oohhh</option>
+  <option value="/assets/Mouth/Pipe.png">Pipe</option>
+  <option value="/assets/Mouth/Pizza.png">Pizza</option>
+  <option value="/assets/Mouth/Puke CYMK.png">Puke CYMK</option>
+  <option value="/assets/Mouth/Sad.png">Sad</option>
+  <option value="/assets/Mouth/Shocked.png">Shocked</option>
+  <option value="/assets/Mouth/Smile.png">Smile</option>
+  <option value="/assets/Mouth/Smirk.png">Smirk</option>
+  <option value="/assets/Mouth/StrawNana.png">StrawNana</option>
+  <option value="/assets/Mouth/Tongue.png">Tongue</option>
+  <option value="/assets/Mouth/Toothless.png">Toothless</option>
+  <option value="/assets/Mouth/Vape.png">Vape</option>
+  <option value="/assets/Mouth/Yikes.png">Yikes</option>
+</select>
+<label for="BackgroundSelect">Background</label>
+<select id="BackgroundSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Background/APE.png">APE</option>
+  <option value="/assets/Background/Brown.png">Brown</option>
+  <option value="/assets/Background/Cyan.png">Cyan</option>
+  <option value="/assets/Background/Green.png">Green</option>
+  <option value="/assets/Background/Grey.png">Grey</option>
+  <option value="/assets/Background/Magenta.png">Magenta</option>
+  <option value="/assets/Background/Orange.png">Orange</option>
+  <option value="/assets/Background/Red.png">Red</option>
+  <option value="/assets/Background/Teal.png">Teal</option>
+</select>
+<label for="ClothesSelect">Clothes</label>
+<select id="ClothesSelect" onchange="updateCanvas()">
+<option value="">-- None --</option>
+  <option value="/assets/Clothes/Alien Pink.png">Alien Pink</option>
+  <option value="/assets/Clothes/Alien.png">Alien</option>
+  <option value="/assets/Clothes/Armor Black.png">Armor Black</option>
+  <option value="/assets/Clothes/Armor.png">Armor</option>
+  <option value="/assets/Clothes/Fur Magenta.png">Fur Magenta</option>
+  <option value="/assets/Clothes/Guayabera.png">Guayabera</option>
+  <option value="/assets/Clothes/Jacket Green.png">Jacket Green</option>
+  <option value="/assets/Clothes/Slooth Diamond.png">Slooth Diamond</option>
+  <option value="/assets/Clothes/Turtle Green.png">Turtle Green</option>
+  <option value="/assets/Clothes/Wong.png">Wong</option>
+</select>
+
+<canvas id="nftCanvas" width="600" height="600"></canvas>
+
+<script>
+const canvas = document.getElementById('nftCanvas');
+const ctx = canvas.getContext('2d');
+
+function updateCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const layerOrder = ["Eyes", "Fur", "Hat", "Mouth", "Background", "Clothes"];
+  layerOrder.forEach(layer => {
+    const select = document.getElementById(layer + "Select");
+    const value = select.value;
+    if (value) {
+      const img = new Image();
+      img.src = value;
+      img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    }
+  });
+}
+</script>
+
+</body>
+</html>
