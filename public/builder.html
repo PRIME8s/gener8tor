@@ -4,6 +4,45 @@
 <head>
   <title>NFT Layer Builder</title>
   <style>
+    body {
+      font-family: sans-serif;
+      padding: 10px;
+      background: #111;
+      color: white;
+      margin: 0;
+    }
+    h1 {
+      font-size: 1.5em;
+      text-align: center;
+    }
+    label, select, button {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 10px auto;
+      font-size: 1em;
+    }
+    canvas {
+      background: white;
+      display: block;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+    button {
+      padding: 10px;
+      background: #00d084;
+      border: none;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    button:hover {
+      background: #00a86b;
+    }
+  </style>
     body { font-family: sans-serif; padding: 20px; background: #111; color: white; }
     select { margin: 10px; }
     canvas { background: white; display: block; margin-top: 20px; }
@@ -144,6 +183,9 @@
   <option value="/assets/Hat/APE Knit Red.png">APE Knit Red</option>
   <option value="/assets/Hat/APE Knit Yellow.png">APE Knit Yellow</option>
   <option value="/assets/Hat/APE Knit.png">APE Knit</option>
+  <option value="/assets/Hat/APE Ski 2.png">APE Ski 2</option>
+  <option value="/assets/Hat/APE Ski 3.png">APE Ski 3</option>
+  <option value="/assets/Hat/APE Ski.png">APE Ski</option>
   <option value="/assets/Hat/Astro.png">Astro</option>
   <option value="/assets/Hat/Beanie.png">Beanie</option>
   <option value="/assets/Hat/Big Brain.png">Big Brain</option>
@@ -248,18 +290,15 @@
   <option value="/assets/Hat/Pirate Yellow.png">Pirate Yellow</option>
   <option value="/assets/Hat/Prussian.png">Prussian</option>
   <option value="/assets/Hat/Rasta.png">Rasta</option>
+  <option value="/assets/Hat/Red Ski 2.png">Red Ski 2</option>
+  <option value="/assets/Hat/Red Ski.png">Red Ski</option>
   <option value="/assets/Hat/RiceHat.png">RiceHat</option>
   <option value="/assets/Hat/Rose.png">Rose</option>
   <option value="/assets/Hat/Safari.png">Safari</option>
   <option value="/assets/Hat/Sailor.png">Sailor</option>
   <option value="/assets/Hat/Service.png">Service</option>
   <option value="/assets/Hat/Sheriff.png">Sheriff</option>
-  <option value="/assets/Hat/SkiMask.png">SkiMask</option>
-  <option value="/assets/Hat/SkiMask APE.png">SkiMask APE</option>
-  <option value="/assets/Hat/SkiMask Red.png">SkiMask Red</option>
-  <option value="/assets/Hat/SkiMask Gold.png">SkiMask Gold</option>
-  <option value="/assets/Hat/SkiMask Green.png">SkiMask Green</option>
-  <option value="/assets/Hat/SkiMask Pink.png">SkiMask Pink</option>
+  <option value="/assets/Hat/Ski.png">Ski</option>
   <option value="/assets/Hat/Snap APE.png">Snap APE</option>
   <option value="/assets/Hat/Snap Cyan.png">Snap Cyan</option>
   <option value="/assets/Hat/Snap Green.png">Snap Green</option>
@@ -358,5 +397,18 @@ function updateCanvas() {
 }
 </script>
 
+
+<br><br>
+<button onclick="downloadImage()">Download PNG</button>
+
+<script>
+function downloadImage() {
+  const link = document.createElement('a');
+  link.download = 'nft_composite.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
 </body>
 </html>
+
