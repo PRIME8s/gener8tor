@@ -55,7 +55,7 @@
     eyeOptions.forEach(file => {
       const option = document.createElement("option");
       option.textContent = file.replace(".png", "");
-      option.value = `/assets/Eyes/${file}`;
+      option.value = `public/assets/Eyes/${file}`;
       eyeSelector.appendChild(option);
     });
 
